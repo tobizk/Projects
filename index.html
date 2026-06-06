@@ -1,157 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tobias Eseverri - Portfolio & Projects</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tobias Eseverri | Junior Front-End Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3">
         <div class="container">
-            <div class="navbar-content">
-                <a href="#" class="logo">TE</a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#contact" class="btn-cta">Get In Touch</a></li>
+            <a class="navbar-brand d-flex align-items-center" href="#welcomepage">
+                <img src="./img/logo.png" alt="Tobias logo" width="44" height="44" class="rounded-circle me-2">
+                <span class="fw-bold">Tobias Eseverri</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#welcomepage">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-                <button class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
         </div>
     </nav>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>
-                        I'm Tobias, a passionate junior front-end developer currently studying Systems Engineering. With a strong foundation in HTML, CSS, and JavaScript, I specialize in creating responsive, user-friendly web interfaces that leave a lasting impression.
-                    </p>
-                    <p>
-                        My approach combines clean, maintainable code with modern design trends. I'm constantly learning and staying updated with the latest web technologies to deliver exceptional results for every project.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>3</h3>
-                            <p>Projects Completed</p>
-                        </div>
-                        <div class="stat">
-                            <h3>100%</h3>
-                            <p>Client Satisfaction</p>
-                        </div>
-                        <div class="stat">
-                            <h3>2+</h3>
-                            <p>Years Learning</p>
-                        </div>
+    <main class="container py-5">
+        <section id="welcomepage" class="hero-section mb-5 text-center rounded-4 soft-card shadow-lg">
+            <div class="py-5 px-4">
+                <p class="eyebrow">Junior Front-End Developer</p>
+                <h1>Hi, I’m Tobias.</h1>
+                <p class="lead">I build responsive web experiences with modern HTML, CSS and JavaScript. I’m studying Systems Engineering and ready to launch my first professional role.</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+                    <a href="#projects" class="btn btn-primary btn-lg">View Projects</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg">Let’s Connect</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mb-5">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <div class="p-4 rounded-4 soft-card h-100">
+                        <h2>About Me</h2>
+                        <p>I’m a Systems Engineering student with a strong interest in front-end development, user interfaces, and clean code. I enjoy turning design ideas into interactive pages and learning new tools every week.</p>
+                        <ul class="about-list">
+                            <li>Student since April 2026 with practical web development experience</li>
+                            <li>Focused on TypeScript, React, responsive design, and accessibility</li>
+                            <li>Looking for an entry-level front-end role or internship</li>
+                            <li>Passionate about continuous improvement and collaborative teams</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="skills-showcase">
-                    <div class="skill-card">
-                        <div class="skill-icon">💻</div>
-                        <h3>Web Development</h3>
-                        <p>HTML, CSS, JavaScript & Modern Frameworks</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">🎨</div>
-                        <h3>UI/UX Design</h3>
-                        <p>Responsive layouts & user-centered design</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">⚡</div>
-                        <h3>Performance</h3>
-                        <p>Optimized & fast-loading web experiences</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon">🚀</div>
-                        <h3>Problem Solving</h3>
-                        <p>Creative solutions to complex challenges</p>
+                <div class="col-lg-6">
+                    <div class="p-4 rounded-4 soft-card h-100">
+                        <h2>What I do</h2>
+                        <div class="info-grid">
+                            <div>
+                                <strong>Role</strong>
+                                <p>Junior Front-End Developer</p>
+                            </div>
+                            <div>
+                                <strong>Tools</strong>
+                                <p>HTML, CSS, JavaScript, React, Git</p>
+                            </div>
+                            <div>
+                                <strong>Focus</strong>
+                                <p>Responsive design, performance, clean UI</p>
+                            </div>
+                            <div>
+                                <strong>Goal</strong>
+                                <p>Build usable interfaces and learn from real product teams</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="work" class="work">
-        <div class="container">
-            <h2 class="section-title">Featured Work</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <div class="card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                    <div class="card-content">
+        <section id="projects" class="mb-5">
+            <div class="section-heading text-center mb-4">
+                <h2>Projects</h2>
+                <p>Selected work that shows my focus on responsive layout and front-end polish.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <article class="project-card p-4 rounded-4 soft-card h-100">
                         <h3>Portfolio Website</h3>
-                        <p>A modern, responsive portfolio showcasing my projects and skills with smooth animations and clean design.</p>
-                        <div class="card-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <a href="http://127.0.0.1:5500/PortfolioMain/index.html" class="tag-link">Go To The Project</a>
-                        </div>
-                    </div>
+                        <p>Clean, responsive landing page built with Bootstrap and custom styling.</p>
+                        <p class="project-tags">HTML • CSS • Bootstrap</p>
+                    </article>
                 </div>
-
-                <div class="portfolio-card">
-                    <div class="card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                    <div class="card-content">
-                        <h3>Task Tracker App</h3>
-                        <p>An interactive task management application with local storage, allowing users to organize and track their daily tasks efficiently.</p>
-                        <div class="card-tags">
-                            <span>JavaScript</span>
-                            <span>DOM</span>
-                            <span>Storage API</span>
-                            <a href="http://127.0.0.1:5500/TaskTracker/index.html" class="tag-link">Go To The Project</a>
-                        </div>
-                    </div>
+                <div class="col-md-4">
+                    <article class="project-card p-4 rounded-4 soft-card h-100">
+                        <h3>Task Tracker</h3>
+                        <p>A task management interface with dynamic filtering and mobile-friendly design.</p>
+                        <p class="project-tags">Vanilla JS • Responsive • Local Storage</p>
+                    </article>
                 </div>
-
-                <div class="portfolio-card">
-                    <div class="card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                    <div class="card-content">
+                <div class="col-md-4">
+                    <article class="project-card p-4 rounded-4 soft-card h-100">
                         <h3>Landing Page Clone</h3>
-                        <p>A pixel-perfect clone of a modern landing page demonstrating advanced CSS techniques and responsive design principles.</p>
-                        <div class="card-tags">
-                            <span>CSS Grid</span>
-                            <span>Flexbox</span>
-                            <span>Responsive</span>
-                            <a href="http://127.0.0.1:5500/portfolio/index.html" class="tag-link">Go To The Project</a>
-                        </div>
-                    </div>
+                        <p>Recreated a polished landing page with responsive sections and accessible typography.</p>
+                        <p class="project-tags">HTML • CSS • Responsive</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="cta">
-        <div class="container">
-            <h2>Let's Work Together</h2>
-            <p>Have a project in mind? I'd love to hear about it. Get in touch and let's create something extraordinary.</p>
-            <div class="cta-buttons">
-                <a href="mailto:forworktobias@gmail.com" class="btn btn-primary btn-large">Send me an Email</a>
+        <section id="skills" class="mb-5">
+            <div class="section-heading text-center mb-4">
+                <h2>Skills</h2>
+                <p>Tools and technologies I use to build modern front-end experiences.</p>
             </div>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/tobias-eseverri/?locale=en-US" aria-label="LinkedIn">in</a>
-                <a href="https://github.com/tobizk" aria-label="GitHub">gh</a>
-                <a href="https://x.com/painpackertob" aria-label="Twitter">tw</a>
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <span class="skill-badge">HTML</span>
+                <span class="skill-badge">CSS</span>
+                <span class="skill-badge">JavaScript</span>
+                <span class="skill-badge">TypeScript</span>
+                <span class="skill-badge">React</span>
+                <span class="skill-badge">Bootstrap</span>
+                <span class="skill-badge">Git</span>
+                <span class="skill-badge">Responsive Design</span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Tobs. All rights reserved.</p>
-            <p>Crafted with ❤️ and a passion for great design.</p>
-        </div>
+        <section id="contact" class="mb-5">
+            <div class="p-4 rounded-4 soft-card text-center">
+                <h2>Contact</h2>
+                <p>I’m open to entry-level front-end roles, internships, and collaboration opportunities. Let’s build something great together.</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+                    <a href="https://www.linkedin.com/in/tobias-eseverri/?locale=en-US" class="btn btn-outline-primary d-flex align-items-center">
+                        <img src="./img/linkedin-icon.png" alt="LinkedIn" width="24" height="24" class="me-2">LinkedIn
+                    </a>
+                    <a href="https://discord.gg/ujc9dEtp" class="btn btn-outline-secondary d-flex align-items-center">
+                        <img src="./img/discord-icon.png" alt="Discord" width="24" height="24" class="me-2">Discord
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-4">
+        <p class="mb-0">&copy; 2026 My Website. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
