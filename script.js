@@ -1,166 +1,129 @@
-const STORAGE_KEY = "taskTracker.tasks";
-const taskForm = document.getElementById("task-form");
-const taskTitle = document.getElementById("task-title");
-const taskDate = document.getElementById("task-date");
-const taskPriority = document.getElementById("task-priority");
-const taskList = document.getElementById("task-list");
-const emptyState = document.getElementById("empty-state");
-const filterButtons = document.querySelectorAll(".filter-btn");
-const clearCompletedButton = document.getElementById("clear-completed");
-const taskSearch = document.getElementById("task-search");
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
 
-let tasks = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-let currentFilter = "all";
-let searchTerm = "";
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
 
-function saveTasks() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
 }
 
-function formatDate(dateString) {
-  if (!dateString) return "No due date";
-  const date = new Date(dateString);
-  return date.toLocaleDateString(undefined, {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.skill-card, .portfolio-card').forEach(el => {
+    observer.observe(el);
+});
+
+let lastScrollY = window.scrollY;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > 100) {
+        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+    } else {
+        navbar.style.boxShadow = 'none';
+    }
+    
+    lastScrollY = currentScrollY;
+});
+
+function typeWriter(element, text, speed = 50) {
+    let index = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (index < text.length) {
+            element.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
 }
 
-function createTaskElement(task) {
-  const item = document.createElement("li");
-  item.className = "task-item";
-  if (task.completed) item.classList.add("task-completed");
+window.addEventListener('load', () => {
+    console.log('Portfolio landing page loaded successfully!');
+});
 
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.checked = task.completed;
-  checkbox.addEventListener("change", () => toggleCompletion(task.id));
-
-  const content = document.createElement("div");
-  content.className = "task-content";
-
-  const title = document.createElement("p");
-  title.className = "task-title";
-  title.textContent = task.title;
-
-  const meta = document.createElement("p");
-  meta.className = "task-meta";
-  meta.innerHTML = `
-    <span class="task-tag tag-${task.priority}">${task.priority}</span>
-    <span>${formatDate(task.dueDate)}</span>
-  `;
-
-  const actions = document.createElement("div");
-  actions.className = "task-actions";
-
-  const completeBtn = document.createElement("button");
-  completeBtn.type = "button";
-  completeBtn.className = "small-btn";
-  completeBtn.textContent = task.completed ? "Undo" : "Complete";
-  completeBtn.addEventListener("click", () => toggleCompletion(task.id));
-
-  const deleteBtn = document.createElement("button");
-  deleteBtn.type = "button";
-  deleteBtn.className = "small-btn";
-  deleteBtn.textContent = "Delete";
-  deleteBtn.addEventListener("click", () => removeTask(task.id));
-
-  actions.append(completeBtn, deleteBtn);
-  content.append(title, meta);
-  item.append(checkbox, content, actions);
-  return item;
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
 }
 
-function getFilteredTasks() {
-  return tasks
-    .filter((task) => {
-      if (currentFilter === "active") return !task.completed;
-      if (currentFilter === "completed") return task.completed;
-      return true;
-    })
-    .filter((task) => task.title.toLowerCase().includes(searchTerm.toLowerCase()));
+function debounce(func, delay) {
+    let timeoutId;
+    return function (...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
 }
 
-function renderTasks() {
-  taskList.innerHTML = "";
-  const visibleTasks = getFilteredTasks();
-
-  if (visibleTasks.length === 0) {
-    emptyState.textContent = tasks.length ? "No tasks match your filter." : "No tasks yet. Add a task to get started.";
-    emptyState.style.display = "block";
-    return;
-  }
-
-  emptyState.style.display = "none";
-  visibleTasks.forEach((task) => taskList.appendChild(createTaskElement(task)));
+function throttle(func, limit) {
+    let inThrottle;
+    return function (...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
 }
 
-function addTask(task) {
-  tasks.unshift(task);
-  saveTasks();
-  renderTasks();
+function initDarkModeToggle() {
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    if (prefersDarkScheme.matches) {
+        document.body.classList.add('dark-mode');
+    }
 }
 
-function toggleCompletion(taskId) {
-  tasks = tasks.map((task) =>
-    task.id === taskId ? { ...task, completed: !task.completed } : task
-  );
-  saveTasks();
-  renderTasks();
+
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
 }
-
-function removeTask(taskId) {
-  tasks = tasks.filter((task) => task.id !== taskId);
-  saveTasks();
-  renderTasks();
-}
-
-function clearCompleted() {
-  tasks = tasks.filter((task) => !task.completed);
-  saveTasks();
-  renderTasks();
-}
-
-function setFilter(newFilter) {
-  currentFilter = newFilter;
-  filterButtons.forEach((button) => button.classList.toggle("active", button.dataset.filter === newFilter));
-  renderTasks();
-}
-
-function handleFormSubmit(event) {
-  event.preventDefault();
-
-  const title = taskTitle.value.trim();
-  if (!title) return;
-
-  const newTask = {
-    id: Date.now().toString(),
-    title,
-    dueDate: taskDate.value,
-    priority: taskPriority.value,
-    completed: false,
-    createdAt: new Date().toISOString(),
-  };
-
-  addTask(newTask);
-  taskForm.reset();
-  taskTitle.focus();
-}
-
-function init() {
-  taskForm.addEventListener("submit", handleFormSubmit);
-  clearCompletedButton.addEventListener("click", clearCompleted);
-  taskSearch.addEventListener("input", (event) => {
-    searchTerm = event.target.value;
-    renderTasks();
-  });
-
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => setFilter(button.dataset.filter));
-  });
-
-  renderTasks();
-}
-
-init();

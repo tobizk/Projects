@@ -1,63 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TaskTracker | Portfolio Project</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tobias Eseverri - Portfolio & Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="app-shell">
-    <header class="app-header">
-      <div>
-        <p class="eyebrow">Portfolio Project (made by Tobs)</p>
-        <h1>TaskTracker WebTool</h1>
-        <p class="hero-copy">Track your daily tasks, set priorities, and stay focused with an intuitive task manager built with HTML, CSS, and JavaScript.</p>
-      </div>
-      <div class="project-badge">Vanilla JS · Responsive · Local Storage</div>
-    </header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <a href="#" class="logo">TE</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#contact" class="btn-cta">Get In Touch</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-    <section class="task-form-panel">
-      <form id="task-form" class="task-form" autocomplete="off">
-        <div class="field-group">
-          <label for="task-title">Task</label>
-          <input id="task-title" name="task-title" type="text" placeholder="Add a new task" required />
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I'm Tobias, a passionate junior front-end developer currently studying Systems Engineering. With a strong foundation in HTML, CSS, and JavaScript, I specialize in creating responsive, user-friendly web interfaces that leave a lasting impression.
+                    </p>
+                    <p>
+                        My approach combines clean, maintainable code with modern design trends. I'm constantly learning and staying updated with the latest web technologies to deliver exceptional results for every project.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>3</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>100%</h3>
+                            <p>Client Satisfaction</p>
+                        </div>
+                        <div class="stat">
+                            <h3>2+</h3>
+                            <p>Years Learning</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-showcase">
+                    <div class="skill-card">
+                        <div class="skill-icon">💻</div>
+                        <h3>Web Development</h3>
+                        <p>HTML, CSS, JavaScript & Modern Frameworks</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🎨</div>
+                        <h3>UI/UX Design</h3>
+                        <p>Responsive layouts & user-centered design</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">⚡</div>
+                        <h3>Performance</h3>
+                        <p>Optimized & fast-loading web experiences</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🚀</div>
+                        <h3>Problem Solving</h3>
+                        <p>Creative solutions to complex challenges</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="field-group">
-          <label for="task-date">Due</label>
-          <input id="task-date" name="task-date" type="date" />
-        </div>
-        <div class="field-group">
-          <label for="task-priority">Priority</label>
-          <select id="task-priority" name="task-priority">
-            <option value="medium" selected>Medium</option>
-            <option value="high">High</option>
-            <option value="low">Low</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Add Task</button>
-      </form>
-
-      <div class="task-controls">
-        <input id="task-search" type="search" placeholder="Search tasks..." />
-        <div class="filter-group" role="group" aria-label="Task filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="active">Active</button>
-          <button class="filter-btn" data-filter="completed">Completed</button>
-        </div>
-      </div>
     </section>
 
-    <section class="task-list-panel">
-      <div class="panel-header">
-        <h2>Tasks</h2>
-        <button id="clear-completed" class="btn btn-secondary">Clear completed</button>
-      </div>
-      <ul id="task-list" class="task-list" aria-live="polite"></ul>
-      <p id="empty-state" class="empty-state">No tasks yet. Add a task to get started.</p>
-    </section>
-  </main>
+    <section id="work" class="work">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="card-content">
+                        <h3>Portfolio Website</h3>
+                        <p>A modern, responsive portfolio showcasing my projects and skills with smooth animations and clean design.</p>
+                        <div class="card-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <a href="http://127.0.0.1:5500/PortfolioMain/index.html" class="tag-link">Go To The Project</a>
+                        </div>
+                    </div>
+                </div>
 
-  <script src="script.js"></script>
+                <div class="portfolio-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    <div class="card-content">
+                        <h3>Task Tracker App</h3>
+                        <p>An interactive task management application with local storage, allowing users to organize and track their daily tasks efficiently.</p>
+                        <div class="card-tags">
+                            <span>JavaScript</span>
+                            <span>DOM</span>
+                            <span>Storage API</span>
+                            <a href="http://127.0.0.1:5500/TaskTracker/index.html" class="tag-link">Go To The Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="card-content">
+                        <h3>Landing Page Clone</h3>
+                        <p>A pixel-perfect clone of a modern landing page demonstrating advanced CSS techniques and responsive design principles.</p>
+                        <div class="card-tags">
+                            <span>CSS Grid</span>
+                            <span>Flexbox</span>
+                            <span>Responsive</span>
+                            <a href="http://127.0.0.1:5500/portfolio/index.html" class="tag-link">Go To The Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Have a project in mind? I'd love to hear about it. Get in touch and let's create something extraordinary.</p>
+            <div class="cta-buttons">
+                <a href="mailto:forworktobias@gmail.com" class="btn btn-primary btn-large">Send me an Email</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/tobias-eseverri/?locale=en-US" aria-label="LinkedIn">in</a>
+                <a href="https://github.com/tobizk" aria-label="GitHub">gh</a>
+                <a href="https://x.com/painpackertob" aria-label="Twitter">tw</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tobs. All rights reserved.</p>
+            <p>Crafted with ❤️ and a passion for great design.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
